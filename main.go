@@ -8,6 +8,7 @@ import (
 
 	"github.com/fotonmoton/aoc2021/client"
 	"github.com/fotonmoton/aoc2021/d1"
+	"github.com/fotonmoton/aoc2021/d2"
 )
 
 func main() {
@@ -18,4 +19,5 @@ func main() {
 	client := client.NewClient(strings.TrimSpace(session))
 
 	fmt.Printf("day1: %v\n", d1.D1(string(client.Day(1))))
+	fmt.Printf("day2: %v\n", d2.D2(string(client.Day(2))))
 }
