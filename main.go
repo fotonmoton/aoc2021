@@ -1,8 +1,8 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
+	"log"
 	"os"
 	"strings"
 
@@ -13,11 +13,15 @@ import (
 
 func main() {
 
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter your session: ")
-	session, _ := reader.ReadString('\n')
-	client := client.NewClient(strings.TrimSpace(session))
+	session, err := os.ReadFile("session")
 
-	fmt.Printf("day1: %v\n", d1.D1(string(client.Day(1))))
-	fmt.Printf("day2: %v\n", d2.D2(string(client.Day(2))))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	client := client.NewClient(strings.TrimSpace(string(session)))
+
+	fmt.Printf("day 1: %v\n", d1.D1(client.Day(1)))
+	fmt.Printf("day 1 part 2: %v\n", d1.D1P2(client.Day(1)))
+	fmt.Printf("day 2: %v\n", d2.D2(client.Day(2)))
 }

@@ -15,7 +15,7 @@ func NewClient(session string) client {
 	return client{session}
 }
 
-func (c *client) Day(day int) []byte {
+func (c *client) Day(day int) string {
 	client := http.Client{}
 	req, err := http.NewRequest("GET", fmt.Sprintf("https://adventofcode.com/2021/day/%v/input", day), nil)
 
@@ -37,5 +37,5 @@ func (c *client) Day(day int) []byte {
 		log.Fatalln(err)
 	}
 
-	return body
+	return string(body)
 }
