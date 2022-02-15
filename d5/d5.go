@@ -56,6 +56,41 @@ func generatePoints(segments []segment) []point {
 	return points
 }
 
+func generatePointsWithDiagonals(segments []segment) []point {
+	points := []point{}
+
+	for _, segment := range segments {
+		startX := segment.a.x
+		startY := segment.a.y
+		endX := segment.b.x
+		endY := segment.b.y
+
+		dx := 1
+		dy := 1
+
+		if segment.a.x == segment.b.x {
+			dx = 0
+		} else if segment.a.x > segment.b.x {
+			dx = -1
+		}
+
+		if segment.a.y == segment.b.y {
+			dy = 0
+		} else if segment.a.y > segment.b.y {
+			dy = -1
+		}
+
+		points = append(points, point{startX, startY})
+		for startX != endX || startY != endY {
+			startX += dx
+			startY += dy
+			points = append(points, point{startX, startY})
+		}
+	}
+
+	return points
+}
+
 func findIntersections(points []point) map[point]int {
 
 	intersections := map[point]int{}
@@ -83,6 +118,14 @@ func D5(input string) int {
 	lines := strings.Split(strings.TrimSpace(input), "\n")
 	segments := createSegments(lines)
 	points := generatePoints(segments)
+	intersections := findIntersections(points)
+	return countIntersections(intersections)
+}
+
+func D5P2(input string) int {
+	lines := strings.Split(strings.TrimSpace(input), "\n")
+	segments := createSegments(lines)
+	points := generatePointsWithDiagonals(segments)
 	intersections := findIntersections(points)
 	return countIntersections(intersections)
 }

@@ -33,4 +33,5 @@ func main() {
 	fmt.Printf("day 4: %v\n", d4.D4(client.Day(4)))
 	fmt.Printf("day 4 part 2: %v\n", d4.D4P2(client.Day(4)))
 	fmt.Printf("day 5: %v\n", d5.D5(client.Day(5)))
+	fmt.Printf("day 5 part 2: %v\n", d5.D5P2(client.Day(5)))
 }
