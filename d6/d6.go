@@ -6,7 +6,7 @@ import (
 )
 
 func toNum(in []string) []int {
-	nums := make([]int, 0, len(in))
+	nums := make([]int, len(in))
 
 	for idx, str := range in {
 		num, _ := strconv.Atoi(str)
