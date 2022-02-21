@@ -5,54 +5,41 @@ import (
 	"strings"
 )
 
-type exists struct{}
-
 type pos struct {
 	x int
 	y int
 }
 
-type basin map[pos]exists
+type basin map[pos]bool
 
-const wall = '9'
-
-func flooded(x, y int, basins []basin) bool {
-	for _, basin := range basins {
-		if _, ok := basin[pos{x, y}]; ok {
-			return true
-		}
-	}
-
-	return false
-}
-
-func flood(x, y int, heights []string, basin basin) basin {
+func flood(x, y int, heights []string, basin basin, flooded basin) basin {
 	if heights[y][x] == wall {
 		return basin
 	}
 
-	if _, ok := basin[pos{x, y}]; ok {
+	if flooded[pos{x, y}] {
 		return basin
 	}
 
-	basin[pos{x, y}] = exists{}
+	basin[pos{x, y}] = true
+	flooded[pos{x, y}] = true
 
-	flood(x, y-1, heights, basin)
-	flood(x+1, y, heights, basin)
-	flood(x, y+1, heights, basin)
-	flood(x-1, y, heights, basin)
+	flood(x, y-1, heights, basin, flooded)
+	flood(x+1, y, heights, basin, flooded)
+	flood(x, y+1, heights, basin, flooded)
+	flood(x-1, y, heights, basin, flooded)
+
 	return basin
 }
 
 func P2(in string) int {
 	heights := addWalls(strings.Split(strings.TrimSpace(in), "\n"))
 	basins := []basin{}
+	flooded := basin{}
 
 	for y := 1; y < len(heights)-1; y++ {
 		for x := 1; x < len(heights[0])-1; x++ {
-			if !flooded(x, y, basins) && heights[y][x] != wall {
-				basins = append(basins, flood(x, y, heights, basin{}))
-			}
+			basins = append(basins, flood(x, y, heights, basin{}, flooded))
 		}
 	}
 
