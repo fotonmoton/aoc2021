@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestD3(t *testing.T) {
+func TestP1(t *testing.T) {
 	input := `
 00100
 11110
@@ -21,10 +21,10 @@ func TestD3(t *testing.T) {
 00010
 01010`
 
-	assert.EqualValues(t, 198, D3(input))
+	assert.EqualValues(t, 198, P1(input))
 }
 
-func TestD3P2(t *testing.T) {
+func TestP2(t *testing.T) {
 	input := `
 00100
 11110
@@ -39,5 +39,5 @@ func TestD3P2(t *testing.T) {
 00010
 01010`
 
-	assert.EqualValues(t, 230, D3P2(input))
+	assert.EqualValues(t, 230, P2(input))
 }

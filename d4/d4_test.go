@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestD4(t *testing.T) {
+func TestP1(t *testing.T) {
 	input := `7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 
 22 13 17 11  0
@@ -28,10 +28,10 @@ func TestD4(t *testing.T) {
  2  0 12  3  7
 `
 
-	assert.EqualValues(t, 4512, D4(input))
+	assert.EqualValues(t, 4512, P1(input))
 }
 
-func TestD4P2(t *testing.T) {
+func TestP2(t *testing.T) {
 	input := `7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 
 22 13 17 11  0
@@ -53,5 +53,5 @@ func TestD4P2(t *testing.T) {
  2  0 12  3  7
 `
 
-	assert.EqualValues(t, 1924, D4P2(input))
+	assert.EqualValues(t, 1924, P2(input))
 }

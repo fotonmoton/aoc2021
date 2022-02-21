@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestD2(t *testing.T) {
+func TestP1(t *testing.T) {
 
 	input := `
 forward 5
@@ -16,10 +16,10 @@ up 3
 down 8
 forward 2`
 
-	assert.EqualValues(t, 150, D2(input))
+	assert.EqualValues(t, 150, P1(input))
 }
 
-func TestD2P2(t *testing.T) {
+func TestP2(t *testing.T) {
 
 	input := `
 forward 5
@@ -29,5 +29,5 @@ up 3
 down 8
 forward 2`
 
-	assert.EqualValues(t, 900, D2P2(input))
+	assert.EqualValues(t, 900, P2(input))
 }

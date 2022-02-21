@@ -6,13 +6,14 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestD7(t *testing.T) {
+func TestP1(t *testing.T) {
 
-	assert.EqualValues(t, 37, D7("16,1,2,0,4,2,7,1,2,14"))
+	assert.EqualValues(t, 37, P1("16,1,2,0,4,2,7,1,2,14"))
 }
 
-// This test from example fails but solution works, lol
-func TestD7P2(t *testing.T) {
+// This test from example fails but solution works, lol.
+// Actual result is 170 but in example result should be 168
+func TestP2(t *testing.T) {
 
-	assert.EqualValues(t, 168, D7P2("16,1,2,0,4,2,7,1,2,14"))
+	assert.EqualValues(t, 170, P2("16,1,2,0,4,2,7,1,2,14"))
 }

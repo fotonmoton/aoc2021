@@ -113,19 +113,3 @@ func countIntersections(intersections map[point]int) int {
 
 	return count
 }
-
-func D5(input string) int {
-	lines := strings.Split(strings.TrimSpace(input), "\n")
-	segments := createSegments(lines)
-	points := generatePoints(segments)
-	intersections := findIntersections(points)
-	return countIntersections(intersections)
-}
-
-func D5P2(input string) int {
-	lines := strings.Split(strings.TrimSpace(input), "\n")
-	segments := createSegments(lines)
-	points := generatePointsWithDiagonals(segments)
-	intersections := findIntersections(points)
-	return countIntersections(intersections)
-}

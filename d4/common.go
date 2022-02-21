@@ -112,21 +112,3 @@ func score(b board, take int) int {
 
 	return sum * take
 }
-
-func D4(input string) int {
-	lines := strings.Split(input, "\n\n")
-	takes := strings.Split(lines[0], ",")
-	boards := createBoards(lines[1:])
-	bingo, take := findBingo(boards, takes)
-
-	return score(bingo, take)
-}
-
-func D4P2(input string) int {
-	lines := strings.Split(input, "\n\n")
-	takes := strings.Split(lines[0], ",")
-	boards := createBoards(lines[1:])
-	bingo, take := findBingo2(boards, takes)
-
-	return score(bingo, take)
-}

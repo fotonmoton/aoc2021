@@ -7,22 +7,6 @@ import (
 	"strings"
 )
 
-func D8(in string) int {
-	lines := strings.Split(strings.TrimSpace(in), "\n")
-
-	sum := 0
-
-	for _, line := range lines {
-		for _, digit := range strings.Split(strings.Split(line, "|")[1], " ") {
-			if len(digit) == 2 || len(digit) == 3 || len(digit) == 4 || len(digit) == 7 {
-				sum++
-			}
-		}
-	}
-
-	return sum
-}
-
 func difference(a []string, b []string) []string {
 	needle := a
 	haystack := b
@@ -251,7 +235,7 @@ func findCode(digitsAsString string, display []string) int {
 	return asInt
 }
 
-func D8P2(in string) int {
+func P2(in string) int {
 	lines := strings.Split(strings.TrimSpace(in), "\n")
 	sum := 0
 	for _, line := range lines {
