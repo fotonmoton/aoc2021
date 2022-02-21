@@ -235,6 +235,7 @@ func findCode(digitsAsString string, display []string) int {
 	return asInt
 }
 
+// TODO: refactor too complicated
 func P2(in string) int {
 	lines := strings.Split(strings.TrimSpace(in), "\n")
 	sum := 0
