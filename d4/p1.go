@@ -1,8 +1,24 @@
 package d4
 
 import (
+	"strconv"
 	"strings"
 )
+
+func findBingo(boards []board, takes []string) (board, int) {
+
+	for _, take := range takes {
+		converted, _ := strconv.Atoi(take)
+		for _, board := range boards {
+			marked := markBoard(board, converted)
+			if gotBingo(marked) {
+				return marked, converted
+			}
+		}
+	}
+
+	return nil, 0
+}
 
 func P1(input string) int {
 	lines := strings.Split(input, "\n\n")

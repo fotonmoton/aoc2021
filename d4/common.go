@@ -66,41 +66,6 @@ func gotBingo(b board) bool {
 	return false
 }
 
-func findBingo(boards []board, takes []string) (board, int) {
-
-	for _, take := range takes {
-		converted, _ := strconv.Atoi(take)
-		for _, board := range boards {
-			marked := markBoard(board, converted)
-			if gotBingo(marked) {
-				return marked, converted
-			}
-		}
-	}
-
-	return nil, 0
-}
-
-func findBingo2(boards []board, takes []string) (board, int) {
-	bingos := make(map[*board]int)
-	wins := []*board{}
-	for _, take := range takes {
-		converted, _ := strconv.Atoi(take)
-		for boardIndex := range boards {
-			board := &boards[boardIndex]
-			if _, ok := bingos[board]; !ok {
-				marked := markBoard(*board, converted)
-				if gotBingo(marked) {
-					bingos[board] = converted
-					wins = append(wins, board)
-				}
-			}
-		}
-	}
-
-	return *wins[len(wins)-1], bingos[wins[len(wins)-1]]
-}
-
 func score(b board, take int) int {
 	sum := 0
 
