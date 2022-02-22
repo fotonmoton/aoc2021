@@ -8,6 +8,7 @@ import (
 
 	"github.com/fotonmoton/aoc2021/client"
 	"github.com/fotonmoton/aoc2021/d1"
+	"github.com/fotonmoton/aoc2021/d10"
 	"github.com/fotonmoton/aoc2021/d2"
 	"github.com/fotonmoton/aoc2021/d3"
 	"github.com/fotonmoton/aoc2021/d4"
@@ -46,4 +47,6 @@ func main() {
 	fmt.Printf("day 8 part 2: %v\n", d8.P2(client.Day(8)))
 	fmt.Printf("day 9: %v\n", d9.P1(client.Day(9)))
 	fmt.Printf("day 9 part 2: %v\n", d9.P2(client.Day(9)))
+	fmt.Printf("day 10: %v\n", d10.P1(client.Day(10)))
+	fmt.Printf("day 10 part 2: %v\n", d10.P2(client.Day(10)))
 }
